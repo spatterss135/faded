@@ -1,12 +1,31 @@
 <!DOCTYPE html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Slideshow</title>
         <link rel="stylesheet" href="./assets/styles.css">
     </head>
     <body>
+        <div class="transition-menu">
+            <button class="transitions">Style</button>
+            <ul class='transition-options'>
+                <li id="fade">Fade</li>
+                <li id="slide">Slide</li>
+                <li id='none'>None</li>
+            </ul>
+        </div>
+        <a href="./picture-page.html" class="picture-selector">Select Photos</a>  
         <div class="slideshow">
-            <img class="last-image image" />
-            <img class="back-image image" />
-            <img class="front-image image" />
+            <div class="container">
+                
+                <img class="last-image image" />
+                <img class="back-image image" />
+                <img class="front-image image" />
+                
+            </div>
+            
             <button class="previous side-bar">←</button>
             <button class="next side-bar">→</button>
             <div class="controls">

@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+    ;
+    text-align: center;
+}
+
+
+.container {
+    margin: auto;
+    width: 75%;
+    display: grid;
+    grid-template-columns: repeat(4, 250px);
+    grid-column-gap: 20px;
+    grid-row-gap: 15px;
+    border: 1px black solid;
+    justify-content: center;
+    padding: 20px;
+}
+
+.select-box {
+    display: flex;
+    border: 1px black solid;
+    padding: 20px;
+    justify-content: space-evenly;
+}
