@@ -33,6 +33,16 @@ let z = images.length-1
 const backImage = document.querySelector('.back-image')
 const frontImage = document.querySelector('.front-image')
 const lastImage = document.querySelector('.last-image')
+const bubbleBox = document.querySelector('.controls')
+for (let i=0;i<images.length;i++) {
+    let newBubble = document.createElement('button')
+    newBubble.classList.add('bubble')
+    newBubble.id = 'bubble-' + i
+    newBubble.textContent = '○'
+    bubbleBox.append(newBubble)
+
+}
+
 const bubbles = document.querySelectorAll('.bubble')
 
 let nextButton = document.querySelector('.next')

@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;
-    ;
     text-align: center;
 }
 
@@ -22,4 +21,9 @@
     border: 1px black solid;
     padding: 20px;
     justify-content: space-evenly;
+}
+
+.selected {
+    width: 200px;
+    height: 200px;
 }

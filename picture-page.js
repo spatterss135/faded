@@ -9,11 +9,12 @@ const images = [
     './assets/8.jpg'
 ]
 
-// let selectedImages = []
+let selectedImages = []
 
 let container = document.querySelector('.container')
 
-for (i=0; i<images.length; i++) {
+// Create the photo library to choose from
+for (let i=0; i<images.length; i++) {
     let newImage = document.createElement('img')
     newImage.classList.add('img')
     newImage.setAttribute('src', images[i])
@@ -22,9 +23,9 @@ for (i=0; i<images.length; i++) {
     container.append(newImage)
 }
 
-
+// Create a hover effect to know what image you are moused over
 let allImages = document.querySelectorAll('.img')
-for(i=0;i<allImages.length;i++) 
+for(let i=0;i<allImages.length;i++) 
 {
     allImages[i].addEventListener('mouseover', function(e) {
         e.target.style.border = '3px red solid'
@@ -46,37 +47,32 @@ for(i=0;i<allImages.length;i++)
 
 let selectedImagesBox = document.querySelectorAll('.selected')
 
-function terrible(e, e1) {
-        e.target.src = e1.target.src
-        e.target.style.height = '250px'
-        e.target.style.width = '250px'
-        e.target.style.border = 'none'
-}
+function selectPhotoSlot(e) {
+        slot = e.target
+        slot.style.border = '3px red solid'
+        for(let i=0;i<allImages.length;i++) {
+            allImages[i].addEventListener('click', selectSlotImage) 
+        } }                   
 
-for (i=0;i<selectedImagesBox.length;i++) {
-    selectedImagesBox[i].addEventListener('click', function(e) {
-        e.target.style.border = '3px red solid'
-
-            for(i=0;i<allImages.length;i++) {
-            allImages[i].addEventListener('click', function(e1) {
-                    e.target.src = e1.target.src
-                    e.target.style.height = '250px'
-                    e.target.style.width = '250px'
-                    e.target.style.border = 'none'
-                    e1.target.removeEventListener('click', function(e1) {
-                        e.target.src = e1.target.src
-                        e.target.style.height = '250px'
-                        e.target.style.width = '250px'
-                        e.target.style.border = 'none'}, true)
-            }
-            )
-    
-    
+function selectSlotImage(e) {
+    slot.src = e.target.src
+    if (selectedImages.length < 6){
+        selectedImages.push(slot.src)
     }
-    })
-    
+    slot.style.height = '250px'
+    slot.style.width = '250px'
+    slot.style.border = 'none'
+    for(let i=0;i<allImages.length;i++) {
+        allImages[i].removeEventListener('click', selectSlotImage)
+}}
 
+for (let i=0;i<selectedImagesBox.length;i++) {
+    selectedImagesBox[i].addEventListener('click', selectPhotoSlot)
 }
+
+            
+   
+
 
 
 
